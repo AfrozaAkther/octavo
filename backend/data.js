@@ -1,0 +1,41 @@
+const data = {
+  products: [
+    {
+      name: 'Adidas Sports Bag',
+      slug: 'adidas-sports-bag',
+      category: 'Shirts',
+      image: '/images/p1.jpg',
+      price: 80,
+      countInStock: 10,
+      brand: 'Adidas',
+      rating: 4,
+      numReviews: 8,
+      description: 'High quality and convenient sports bag',
+    },
+    {
+      name: 'Matador Ball Pen',
+      slug: 'matador-ball-pen',
+      category: 'pen',
+      image: '/images/p2.jpg',
+      price: 4,
+      countInStock: 100,
+      brand: 'Matador',
+      rating: 4.5,
+      numReviews: 8,
+      description: 'Black Ball Pen',
+    },
+    {
+      name: 'Matador 2B Pencil',
+      slug: 'matador-2b-pencil',
+      category: 'pencil',
+      image: '/images/p3.jpg',
+      price: 3,
+      countInStock: 100,
+      brand: 'Matador',
+      rating: 4.5,
+      numReviews: 8,
+      description: 'Black color pencil',
+    },
+  ],
+};
+export default data;
