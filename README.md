@@ -1,1 +1,1 @@
-School supppiles web application 
+Web application for school supplies 
