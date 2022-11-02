@@ -36,6 +36,18 @@ const data = {
       numReviews: 8,
       description: 'Black color pencil',
     },
+    {
+      name: 'White Spiral Notebook',
+      slug: 'white-notebook',
+      category: 'notebook',
+      image: '/images/p4.jpg',
+      price: 5,
+      countInStock: 100,
+      brand: 'Matador',
+      rating: 4.8,
+      numReviews: 8,
+      description: 'spiral binded white notebook',
+    },
   ],
 };
 export default data;
