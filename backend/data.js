@@ -18,7 +18,7 @@ const data = {
       category: 'pen',
       image: '/images/p2.jpg',
       price: 4,
-      countInStock: 100,
+      countInStock: 0,
       brand: 'Matador',
       rating: 4.5,
       numReviews: 18,
