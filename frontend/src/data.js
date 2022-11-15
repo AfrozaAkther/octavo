@@ -21,7 +21,7 @@ const data = {
       countInStock: 100,
       brand: 'Matador',
       rating: 4.5,
-      numReviews: 8,
+      numReviews: 18,
       description: 'Black Ball Pen',
     },
     {
@@ -33,7 +33,7 @@ const data = {
       countInStock: 100,
       brand: 'Matador',
       rating: 4.5,
-      numReviews: 8,
+      numReviews: 9,
       description: 'Black color pencil',
     },
   ],

@@ -9,7 +9,7 @@ const data = {
       countInStock: 10,
       brand: 'Adidas',
       rating: 4,
-      numReviews: 8,
+      numReviews: 9,
       description: 'High quality and convenient sports bag',
     },
     {
@@ -21,7 +21,7 @@ const data = {
       countInStock: 100,
       brand: 'Matador',
       rating: 4.5,
-      numReviews: 8,
+      numReviews: 18,
       description: 'Black Ball Pen',
     },
     {
@@ -45,7 +45,7 @@ const data = {
       countInStock: 100,
       brand: 'Matador',
       rating: 4.8,
-      numReviews: 8,
+      numReviews: 12,
       description: 'spiral binded white notebook',
     },
   ],
