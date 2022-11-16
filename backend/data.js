@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'Adidas Sports Bag',
       slug: 'adidas-sports-bag',
       category: 'Shirts',
@@ -13,6 +14,7 @@ const data = {
       description: 'High quality and convenient sports bag',
     },
     {
+      _id: '2',
       name: 'Matador Ball Pen',
       slug: 'matador-ball-pen',
       category: 'pen',
@@ -25,6 +27,7 @@ const data = {
       description: 'Black Ball Pen',
     },
     {
+      _id: '3',
       name: 'Matador 2B Pencil',
       slug: 'matador-2b-pencil',
       category: 'pencil',
@@ -37,6 +40,7 @@ const data = {
       description: 'Black color pencil',
     },
     {
+      _id: '4',
       name: 'White Spiral Notebook',
       slug: 'white-notebook',
       category: 'notebook',
