@@ -3,6 +3,7 @@ import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import { generateToken } from '../utils.js';
 import expressAsyncHandler from 'express-async-handler';
+
 const userRouter = express.Router();
 
 userRouter.post(
