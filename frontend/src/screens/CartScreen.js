@@ -29,7 +29,7 @@ export default function CartScreen() {
     });
   };
   const checkoutHandler = () => {
-    navigate('/signin?redirect =/shipping');
+    navigate('/signin?redirect=/shipping');
   };
   return (
     <div>
@@ -78,7 +78,7 @@ export default function CartScreen() {
                       </Button>
                     </Col>
                     <Col md={3}> ${item.price}</Col>
-                    <Col>
+                    <Col md={2}>
                       <Button
                         variant="light"
                         onClick={() => removeItemHandler(item)}
