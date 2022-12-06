@@ -91,7 +91,7 @@ export default function PlaceOrderScreen() {
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
-        <title>Order Trailer</title>
+        <title>Order Preview</title>
       </Helmet>
       <h1 className="my-3">Order Trailer</h1>
       <Row>
