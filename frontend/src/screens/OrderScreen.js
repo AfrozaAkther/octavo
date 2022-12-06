@@ -123,7 +123,9 @@ export default function OrderScreen() {
         });
         paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
       };
-      loadPaypalScript();
+      if (order.paymentMethod === 'PayPal') {
+        loadPaypalScript();
+      }
     }
   }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
 
@@ -235,7 +237,7 @@ export default function OrderScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                {!order.isPaid &&  (
+                {!order.isPaid && (
                   <ListGroup.Item>
                     {isPending ? (
                       <LoadingBox />
