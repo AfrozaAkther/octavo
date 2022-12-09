@@ -109,7 +109,8 @@ export default function OrderScreen() {
       if (successPay) {
         dispatch({ type: 'PAY_RESET' });
       }
-    } else {
+    } 
+    if (order.paymentMethod === 'PayPal') {
       const loadPaypalScript = async () => {
         const { data: clientId } = await axios.get('/api/keys/paypal', {
           headers: { authorization: `Bearer ${userInfo.token}` },
@@ -123,9 +124,8 @@ export default function OrderScreen() {
         });
         paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
       };
-      if (order.paymentMethod === 'PayPal') {
+ //     if (order.paymentMethod === 'PayPal') {
         loadPaypalScript();
-      }
     }
   }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
 
@@ -140,7 +140,7 @@ export default function OrderScreen() {
       </Helmet>
       <h1 className="my-3">
         {' '}
-        {order.shippingAddress.fullName}'s Order {orderId}
+        {order.shippingAddress.fullName}'s Order - {orderId}
       </h1>
       <Row>
         <Col md={8}>
@@ -237,7 +237,7 @@ export default function OrderScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                {!order.isPaid && (
+                {!order.isPaid && order.paymentMethod==='PayPal' &&(
                   <ListGroup.Item>
                     {isPending ? (
                       <LoadingBox />

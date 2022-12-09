@@ -88,22 +88,14 @@ export default function SearchScreen() {
       loading: true,
       error: '',
     });
-
+  console.log(products);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          // `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
-          {
-            pathname: '/api/products/search',
-            query: { page: page },
-            query1: { query: query },
-            query2: { category: category },
-            query3: { price: price },
-            query4: { rating: rating },
-            query5: { order: order },
-          }
+        `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
         );
+        console.log(data);
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({
@@ -143,7 +135,8 @@ export default function SearchScreen() {
       query: { price: filterPrice },
       query: { rating: filterRating },
       query: { order: sortOrder },
-    }; //`/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    };
+   //return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
     <div>
