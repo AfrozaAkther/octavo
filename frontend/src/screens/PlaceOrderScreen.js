@@ -72,6 +72,20 @@ export default function PlaceOrderScreen() {
     }
   };
 
+  const OrderdeleteHandler = async () => {
+    try {
+      dispatch({ type: 'REMOVE_SUCCESS' });
+      ctxDispatch({ type: 'CART_CLEAR' });
+      localStorage.removeItem('cartItems');
+      navigate(`/`);
+    } catch (err) {
+      dispatch({
+        type: 'REMOVE_FAIL',
+      });
+      toast.error(getError(err));
+    }
+  };
+
   useEffect(() => {
     if (!cart.paymentMethod) {
       navigate('/payment');
@@ -86,6 +100,7 @@ export default function PlaceOrderScreen() {
   const navigateShipping = () => {
     navigate('/shipping');
   };
+
   const current = new Date();
 
   return (
@@ -105,7 +120,7 @@ export default function PlaceOrderScreen() {
                 <br />
                 <strong>Address:&nbsp; </strong> {cart.shippingAddress.address},
                 {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
-                {cart.shippingAddress.country} <br/>
+                {cart.shippingAddress.country} <br />
               </Card.Text>
               <Button type="button" onClick={navigateShipping}>
                 Edit
@@ -116,7 +131,10 @@ export default function PlaceOrderScreen() {
             <Card.Body>
               <Card.Title>Delivery Time</Card.Title>
               <Card.Text>
-                <strong> Estimated delivery time: &nbsp;</strong> {current.toString(current.setDate(current.getDate() + 7)).slice(0,15)}
+                <strong> Estimated delivery date: &nbsp;</strong>{' '}
+                {current
+                  .toString(current.setDate(current.getDate() + 7))
+                  .slice(0, 15)}
               </Card.Text>
             </Card.Body>
           </Card>
@@ -202,6 +220,19 @@ export default function PlaceOrderScreen() {
                       disabled={cart.cartItems.length === 0}
                     >
                       Confirm Order
+                    </Button>
+                  </div>
+                  {loading && <LoadingBox></LoadingBox>}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <div className="d-grid">
+                    <Button
+                      type="button"
+                      variant="danger"
+                      onClick={OrderdeleteHandler}
+                      disabled={cart.cartItems.length === 0}
+                    >
+                      Cancel Order
                     </Button>
                   </div>
                   {loading && <LoadingBox></LoadingBox>}

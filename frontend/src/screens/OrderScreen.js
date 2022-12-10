@@ -152,7 +152,7 @@ const current = new Date()
                 <strong>Address: &nbsp;</strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
                 ,{order.shippingAddress.country} <br/>
-                <strong> Estimated delivery time: &nbsp;</strong> {current.toString(current.setDate(current.getDate() + 7)).slice(0,15)}
+                <strong> Estimated delivery date: &nbsp;</strong> {current.toString(current.setDate(current.getDate() + 7)).slice(0,15)}
               </Card.Text>
               {order.isDelivered ? (
                 <MessageBox variant="success">
