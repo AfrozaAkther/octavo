@@ -86,6 +86,7 @@ export default function PlaceOrderScreen() {
   const navigateShipping = () => {
     navigate('/shipping');
   };
+  const current = new Date();
 
   return (
     <div>
@@ -104,14 +105,21 @@ export default function PlaceOrderScreen() {
                 <br />
                 <strong>Address:&nbsp; </strong> {cart.shippingAddress.address},
                 {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
-                {cart.shippingAddress.country}
+                {cart.shippingAddress.country} <br/>
               </Card.Text>
               <Button type="button" onClick={navigateShipping}>
                 Edit
               </Button>
             </Card.Body>
           </Card>
-
+          <Card className="mb-3">
+            <Card.Body>
+              <Card.Title>Delivery Time</Card.Title>
+              <Card.Text>
+                <strong> Estimated delivery time: &nbsp;</strong> {current.toString(current.setDate(current.getDate() + 7)).slice(0,15)}
+              </Card.Text>
+            </Card.Body>
+          </Card>
           <Card className="mb-3">
             <Card.Body>
               <Card.Title>Payment</Card.Title>

@@ -128,7 +128,7 @@ export default function OrderScreen() {
         loadPaypalScript();
     }
   }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
-
+const current = new Date()
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -148,10 +148,11 @@ export default function OrderScreen() {
             <Card.Body>
               <Card.Title>Shipping</Card.Title>
               <Card.Text>
-                <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                <strong>Address: </strong> {order.shippingAddress.address},
+                <strong>Name: &nbsp;</strong> {order.shippingAddress.fullName} <br />
+                <strong>Address: &nbsp;</strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
-                ,{order.shippingAddress.country}
+                ,{order.shippingAddress.country} <br/>
+                <strong> Estimated delivery time: &nbsp;</strong> {current.toString(current.setDate(current.getDate() + 7)).slice(0,15)}
               </Card.Text>
               {order.isDelivered ? (
                 <MessageBox variant="success">
