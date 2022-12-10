@@ -6,6 +6,7 @@ import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import axios from 'axios';
+import LoadingBox from '../components/LoadingBox';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -105,6 +106,7 @@ export default function ProfileScreen() {
         </Form.Group>
         <div className="mb-3">
           <Button type="submit">Update</Button>
+          {loadingUpdate && <LoadingBox></LoadingBox>}
         </div>
       </form>
     </div>
