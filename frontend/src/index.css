@@ -14,16 +14,17 @@ main {
 }
 .btn-primary,
 .btn-outline-primary {
-  background-color: #7ce642;
-  color: black;
+  background-color: #861393;
+  color: #ffffff;
 }
 .products {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 .rating span {
-  color: #ffc000;
+  color: #3feaac;
 }
 
 .product {
