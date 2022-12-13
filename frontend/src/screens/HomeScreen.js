@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
@@ -7,7 +7,10 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-
+import { LinkContainer } from 'react-router-bootstrap';
+import { toast } from 'react-toastify';
+import { getError } from '../utils';
+import randomColor from 'randomcolor';
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -39,11 +42,32 @@ function HomeScreen() {
     };
     fetchData();
   }, []);
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axios.get(`/api/products/categories`);
+        setCategories(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchCategories();
+  }, []);
+
   return (
     <div>
-      <h1>Featured Products</h1>
+      <div className="text-center pb-3">
+        <h1 className="product-title">Featured Products</h1>
+        <p>
+          you can buy any product you want from it . all the essentials are in
+          stock. just a click away
+        </p>
+      </div>
       <Helmet>
-        <title>octavo</title>
+        <title className="product-title">octavo</title>
       </Helmet>
       <div className="products">
         {loading ? (
@@ -52,11 +76,33 @@ function HomeScreen() {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
-            {products.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                <Product product={product}></Product>
-              </Col>
-            ))}
+            <Col md={2} className="side-color">
+              {' '}
+              <h3 className="product-title">Categories </h3>
+              {categories.map((category) => (
+                <div>
+                  <div key={category}>
+                    <LinkContainer
+                      to={{
+                        pathname: '/search',
+                        search: `?category=${category}`,
+                      }}
+                    >
+                      <a href="/">{category}</a>
+                    </LinkContainer>
+                  </div>
+                </div>
+              ))}
+            </Col>
+            <Col md={10}>
+              <Row>
+                {products.map((product) => (
+                  <Col key={product.slug} sm={12} md={4} className="mb-3">
+                    <Product product={product} color={randomColor()}></Product>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
           </Row>
         )}
       </div>

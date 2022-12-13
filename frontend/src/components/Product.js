@@ -26,24 +26,29 @@ function Product(props) {
       payload: { ...item, quantity },
     });
   };
+
   return (
-    <Card>
+    <Card className="md-5 pt-3">
       <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
+        <img
+          src={product.image}
+          className="card-img-top img-card"
+          alt={product.name}
+        />
       </Link>
-      <Card.Body>
+      <Card.Body style={{ background: props.color}}>
         <Link to={`/product/${product.slug}`}>
           <Card.Title>{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
         <Card.Text>${product.price}</Card.Text>
         {product.countInStock === 0 ? (
-          <Button variant="light" disabled>
+          <Button className="w-100" variant="dark" disabled>
             {' '}
             Out Of Stock
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>
+          <Button className="w-100" onClick={() => addToCartHandler(product)}>
             {' '}
             Add to cart
           </Button>
