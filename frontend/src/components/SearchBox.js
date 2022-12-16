@@ -14,6 +14,7 @@ export default function SearchBox() {
   };
 
   return (
+    <div className='d-grid gap-2'>
     <Form className="d-flex me-auto" onSubmit={submitHandler}>
       <InputGroup>
         <FormControl
@@ -25,10 +26,13 @@ export default function SearchBox() {
           aria-label="Search Products"
           aria-describedby="button-search"
         ></FormControl>
-        <Button variant="outline-primary" type="submit" id="button-search">
+      
+        <Button size="lg" variant="light" type="submit" id="button-search">
           <i className="fas fa-search"></i>
         </Button>
+     
       </InputGroup>
     </Form>
+    </div>
   );
 }

@@ -33,18 +33,22 @@ export default function CartScreen() {
   };
   return (
     <div>
+      
       <Helmet>
+        
         <title>Shopping Cart</title>
       </Helmet>
-      <h1>Shopping Cart</h1>
-      <Row>
+      <div className="text-center pb-3">
+      <h1 className='product-title'>Shopping Cart</h1>
+      </div>
+        <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
             <MessageBox>
               Cart Is Empty <Link to="/"> Go Shopping </Link>
             </MessageBox>
           ) : (
-            <ListGroup>
+            <ListGroup >
               {cartItems.map((item) => (
                 <ListGroup.Item key={item._id}>
                   <Row className="align-items-center">
@@ -54,11 +58,11 @@ export default function CartScreen() {
                         alt={item.name}
                         className="img=fluid rounded img-thumbnail"
                       ></img>{' '}
-                      <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                      <Link className= " product-title link-color" to={`/product/${item.slug}`}>{item.name}</Link>
                     </Col>
                     <Col md={3}>
                       <Button
-                        variant="light"
+                        variant="danger"
                         onClick={() =>
                           updateCartHandler(item, item.quantity - 1)
                         }
@@ -66,9 +70,9 @@ export default function CartScreen() {
                       >
                         <i className="fas fa-minus-circle"></i>
                       </Button>{' '}
-                      <span> {item.quantity}</span>{' '}
+                      <span> &nbsp;{item.quantity}&nbsp;</span>{' '}
                       <Button
-                        variant="light"
+                        variant="success"
                         onClick={() =>
                           updateCartHandler(item, item.quantity + 1)
                         }
@@ -80,7 +84,7 @@ export default function CartScreen() {
                     <Col md={3}> ${item.price}</Col>
                     <Col md={2}>
                       <Button
-                        variant="light"
+                        variant="danger"
                         onClick={() => removeItemHandler(item)}
                       >
                         <i className="fas fa-trash"></i>{' '}
@@ -97,11 +101,12 @@ export default function CartScreen() {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h3>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}){' '}
-                    items) : $
+                  <h3 className='text-center product-title'>
+                    Subtotal </h3>
+                 <h5>  {cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
+                    items : $
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-                  </h3>
+                    </h5> 
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-grid">

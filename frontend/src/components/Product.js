@@ -36,9 +36,9 @@ function Product(props) {
           alt={product.name}
         />
       </Link>
-      <Card.Body style={{ background: props.color}}>
-        <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+      <Card.Body style={{ background: props.color }}>
+        <Link className="link-color" to={`/product/${product.slug}`}>
+          <Card.Title className="link-color">{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
         <Card.Text>${product.price}</Card.Text>

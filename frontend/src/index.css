@@ -5,10 +5,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.pad{
+  float: right;
+}
 .product-title {
   font-family: 'Roboto Mono', monospace;
   font-style: normal;
   font-weight: 700;
+}
+.message {
+  font-family: 'Roboto Mono', monospace;
+}
+.side-color {
+  background-color: #b6b6b6;
+}
+.link-color {
+  color: #2c2b2b;
 }
 .color-nav {
   background-color: rgba(14, 16, 18, 0.39);
@@ -38,7 +50,7 @@ main {
   justify-content: center;
 }
 .rating span {
-  color: #3feaac;
+  color: #fade4e;
 }
 
 .product {
@@ -71,6 +83,7 @@ main {
 }
 .navbar-brand {
   font-weight: bold;
+  padding-right: 120px;
 }
 .side-navbar {
   width: 240px;
@@ -80,7 +93,6 @@ main {
   background-color: #100901;
   transition: 0.5s;
 }
-
 .site-container {
   transition: 0.4s;
 }

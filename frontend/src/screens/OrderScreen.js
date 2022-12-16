@@ -134,19 +134,19 @@ const current = new Date()
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div>
+    <div className='message'>
       <Helmet>
         <title>Order {orderId}</title>
       </Helmet>
-      <h1 className="my-3">
+      <h1 className="my-3 product-title">
         {' '}
-        {order.shippingAddress.fullName}'s Order - {orderId}
+        {order.shippingAddress.fullName}'s Order-{orderId}
       </h1>
       <Row>
         <Col md={8}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title className='text-center'><strong>Delivery</strong></Card.Title>
               <Card.Text>
                 <strong>Name: &nbsp;</strong> {order.shippingAddress.fullName} <br />
                 <strong>Address: &nbsp;</strong> {order.shippingAddress.address},
@@ -165,7 +165,7 @@ const current = new Date()
           </Card>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
+              <Card.Title className='text-center'><strong>Payment</strong></Card.Title>
               <Card.Text>
                 <strong>Method:</strong> {order.paymentMethod}
               </Card.Text>
@@ -181,7 +181,7 @@ const current = new Date()
 
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Items</Card.Title>
+              <Card.Title className='text-center'><strong>Items</strong></Card.Title>
               <ListGroup variant="flush">
                 {order.orderItems.map((item) => (
                   <ListGroup.Item key={item._id}>
@@ -192,7 +192,7 @@ const current = new Date()
                           alt={item.name}
                           className="img-fluid rounded img-thumbnail"
                         ></img>{' '}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                        <Link className = "link-color" to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>
                         <span>{item.quantity}</span>
@@ -208,7 +208,7 @@ const current = new Date()
         <Col md={4}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
+              <Card.Title className='text-center'><strong>Order Summary</strong></Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
@@ -218,7 +218,7 @@ const current = new Date()
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Shipping</Col>
+                    <Col>Delivery</Col>
                     <Col>${order.shippingPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
@@ -230,7 +230,7 @@ const current = new Date()
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>
+                    <Col >
                       <strong> Order Total</strong>
                     </Col>
                     <Col>

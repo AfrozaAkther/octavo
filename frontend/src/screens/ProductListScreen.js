@@ -136,13 +136,7 @@ export default function ProductListScreen() {
         <Col>
           <h1>Products</h1>
         </Col>
-        <Col className="col text-end">
-          <div>
-            <Button type="button" onClick={createHandler}>
-              Create Product
-            </Button>
-          </div>
-        </Col>
+   
       </Row>
 
       {loadingCreate && <LoadingBox></LoadingBox>}
@@ -183,7 +177,7 @@ export default function ProductListScreen() {
                   <td>
                     <Button
                       type="button"
-                      variant="light"
+                      variant="outline-secondary"
                       onClick={() => navigate(`/admin/product/${product._id}`)}
                     >
                       Edit
@@ -191,7 +185,7 @@ export default function ProductListScreen() {
                     &nbsp;
                     <Button
                       type="button"
-                      variant="light"
+                      variant="danger"
                       onClick={() => deleteHandler(product)}
                     >
                       Delete
@@ -201,6 +195,15 @@ export default function ProductListScreen() {
               ))}
             </tbody>
           </table>
+          <Row>
+      <Col className="col text-end">
+        <div>
+          <Button type="button" variant="info" onClick={createHandler}>
+            <strong>Add Product</strong>
+          </Button>
+        </div>
+      </Col>
+    </Row>
           <div>
             {[...Array(pages).keys()].map((x) => (
               <Link

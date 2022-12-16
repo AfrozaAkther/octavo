@@ -104,17 +104,18 @@ export default function PlaceOrderScreen() {
   const current = new Date();
 
   return (
-    <div>
+    <div className="message">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
         <title>Order Preview</title>
       </Helmet>
-      <h1 className="my-3">Order Preview</h1>
       <Row>
-        <Col md={8}>
+      <h1 className="my-3 product-title text-center">Order Preview</h1>
+
+        <Col md={8} className="mt-3">
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title className="text-center"> <strong>Delivery</strong></Card.Title>
               <Card.Text>
                 <strong>Name: &nbsp;</strong> {cart.shippingAddress.fullName}{' '}
                 <br />
@@ -122,14 +123,14 @@ export default function PlaceOrderScreen() {
                 {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
                 {cart.shippingAddress.country} <br />
               </Card.Text>
-              <Button type="button" onClick={navigateShipping}>
+              <Button type="button" onClick={navigateShipping} className="pad">
                 Edit
               </Button>
             </Card.Body>
           </Card>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Delivery Time</Card.Title>
+              <Card.Title className="text-center"> <strong>Delivery Time</strong></Card.Title>
               <Card.Text>
                 <strong> Estimated delivery date: &nbsp;</strong>{' '}
                 {current
@@ -140,19 +141,27 @@ export default function PlaceOrderScreen() {
           </Card>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
+              <Card.Title className="text-center"> <strong>Payment</strong></Card.Title>
               <Card.Text>
                 <strong>Method: &nbsp;</strong> {cart.paymentMethod}
               </Card.Text>
-              <Button type="button" onClick={navigatePayment}>
+              <Button  className= "pad" type="button" onClick={navigatePayment} >
                 Edit
               </Button>
             </Card.Body>
           </Card>
 
-          <Card className="mb-3">
+          <Card className="mb-5">
             <Card.Body>
-              <Card.Title>Selected Items</Card.Title>
+              <Card.Title className="text-center"> <strong>Selected Items</strong></Card.Title>
+              <Row >
+                      <Col md={5} className="text-center"> <strong>Item</strong>
+                      </Col>
+                      <Col md={3}  className="text-center">
+                      <strong>Item Quantity</strong>
+                      </Col>
+                      <Col md={3} className="text-center"><strong>Item Price</strong></Col>
+                    </Row>
               <ListGroup variant="flush">
                 {cart.cartItems.map((item) => (
                   <ListGroup.Item key={item._id}>
@@ -163,7 +172,12 @@ export default function PlaceOrderScreen() {
                           alt={item.name}
                           className="img-fluid rounded img-thumbnail"
                         ></img>{' '}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                        <Link
+                          className="link-color"
+                          to={`/product/${item.slug}`}
+                        >
+                          {item.name}
+                        </Link>
                       </Col>
                       <Col md={3}>
                         <span>{item.quantity}</span>
@@ -173,7 +187,7 @@ export default function PlaceOrderScreen() {
                   </ListGroup.Item>
                 ))}
               </ListGroup>
-              <Button type="button" onClick={navigateCart}>
+              <Button type="button" onClick={navigateCart} className="pad">
                 Edit
               </Button>
             </Card.Body>
@@ -182,7 +196,7 @@ export default function PlaceOrderScreen() {
         <Col md={4}>
           <Card>
             <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
+              <Card.Title className="text-center"><strong>Order Summary </strong></Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>

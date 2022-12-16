@@ -59,11 +59,12 @@ function HomeScreen() {
 
   return (
     <div>
-      <div className="text-center pb-3">
-        <h1 className="product-title">Featured Products</h1>
-        <p>
-          you can buy any product you want from it . all the essentials are in
-          stock. just a click away
+      <div className="text-center pb-3 ">
+        <h1 className="product-title">Featured Products</h1>     
+          <h5 className='message' > Welcome to octavo!</h5>
+          <p className="message">
+             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Find all the school necessities in one stop. Take a quick look and add
+             to cart while in stock.
         </p>
       </div>
       <Helmet>
@@ -83,6 +84,7 @@ function HomeScreen() {
                 <div>
                   <div key={category}>
                     <LinkContainer
+                      className="link-color product-title"
                       to={{
                         pathname: '/search',
                         search: `?category=${category}`,

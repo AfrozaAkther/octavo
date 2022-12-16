@@ -71,13 +71,23 @@ function App() {
                 <i className="fas fa-bars"></i>
               </Button> */}
               <LinkContainer to="/">
-                <Navbar.Brand> &nbsp; &nbsp; octavo</Navbar.Brand>
+                <Navbar.Brand className="product-title">
+                  {' '}
+                  &nbsp; &nbsp; octavo{' '}
+                  <img
+                    src="images\logo.jpg"
+                    alt=""
+                    width="30"
+                    height="24"
+                    class="d-inline-block align-text-top"
+                  ></img>
+                </Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto w-100 justify-content-end">
-                  <Link to="/cart" className="nav-link">
+                  <Link to="/cart" className="nav-link product-title">
                     Cart
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
@@ -86,7 +96,11 @@ function App() {
                     )}
                   </Link>
                   {userInfo ? (
-                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <NavDropdown
+                      className="product-title"
+                      title={userInfo.name}
+                      id="basic-nav-dropdown"
+                    >
                       <LinkContainer to="/profile">
                         <NavDropdown.Item> User Profile</NavDropdown.Item>
                       </LinkContainer>
@@ -108,7 +122,11 @@ function App() {
                     </Link>
                   )}
                   {userInfo && userInfo.isAdmin && (
-                    <NavDropdown title="Admin" id="admin-nav-dropdown">
+                    <NavDropdown
+                      className="product-title"
+                      title="Admin"
+                      id="admin-nav-dropdown"
+                    >
                       <LinkContainer to="/admin/dashboard">
                         <NavDropdown.Item>Dashboard</NavDropdown.Item>
                       </LinkContainer>
