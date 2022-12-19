@@ -54,7 +54,7 @@ function App() {
               <LinkContainer to="/">
                 <Navbar.Brand className="product-title">
                   {' '}
-                  &nbsp; &nbsp; octavo{' '}
+                  &nbsp; &nbsp;octavo{' '}
                   <img
                     src="images\logo.jpg"
                     alt=""
