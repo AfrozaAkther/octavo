@@ -50,11 +50,11 @@ export default function UserListScreen() {
     fetchData();
   }, [userInfo]);
   return (
-    <div>
+    <div className='message'>
       <Helmet>
         <title>Users</title>
       </Helmet>
-      <h1>Users</h1>
+      <h1 className='product-title'>Users</h1>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -64,10 +64,9 @@ export default function UserListScreen() {
           <thead>
             <tr>
               <th>NAME</th>
-              <th>ID</th>
+              <th>USER ID</th>
               <th>EMAIL</th>
               <th>ADMIN</th>
-              <th>ACTIONS</th>
             </tr>
           </thead>
           <tbody>

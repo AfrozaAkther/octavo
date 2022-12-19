@@ -51,8 +51,8 @@ export default function DashboardScreen() {
   }, [userInfo]);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className='message'>
+      <h1 className='product-title'>Dashboard</h1>
       {loading ? (
         <LoadingBox />
       ) : error ? (

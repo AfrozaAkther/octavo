@@ -131,10 +131,10 @@ export default function ProductListScreen() {
     }
   };
   return (
-    <div>
+    <div className='message'>
       <Row>
         <Col>
-          <h1>Products</h1>
+          <h1 className='product-title'>Products</h1>
         </Col>
    
       </Row>

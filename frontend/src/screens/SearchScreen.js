@@ -75,7 +75,7 @@ export const ratings = [
 export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
-  const sp = new URLSearchParams(search); // /search?category=Shirts
+  const sp = new URLSearchParams(search); 
   const category = sp.get('category') || 'all';
   const query = sp.get('query') || 'all';
   const price = sp.get('price') || 'all';
@@ -139,7 +139,7 @@ export default function SearchScreen() {
    //return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
-    <div>
+    <div className='message'>
       <Helmet>
         <title>Search Products</title>
       </Helmet>
@@ -150,7 +150,7 @@ export default function SearchScreen() {
             <ul>
               <li>
                 <Link
-                  className={'all' === category ? 'text-bold' : ''}
+                  className={'all' === category ? 'text-bold link-color' : '' } 
                   to={getFilterUrl({ category: 'all' })}
                 >
                   Any
@@ -159,7 +159,7 @@ export default function SearchScreen() {
               {categories?.map((c) => (
                 <li key={c}>
                   <Link
-                    className={c === category ? 'text-bold' : ''}
+                    className={c === category ? 'text-bold link-color' : ''}
                     to={getFilterUrl({ category: c })}
                   >
                     {c}
@@ -173,7 +173,7 @@ export default function SearchScreen() {
             <ul>
               <li>
                 <Link
-                  className={'all' === price ? 'text-bold' : ''}
+                  className={'all' === price ? 'text-bold link-color' : ''}
                   to={getFilterUrl({ price: 'all' })}
                 >
                   Any
@@ -183,7 +183,7 @@ export default function SearchScreen() {
                 <li key={p.value}>
                   <Link
                     to={getFilterUrl({ price: p.value })}
-                    className={p.value === price ? 'text-bold' : ''}
+                    className={p.value === price ? 'text-bold link-color' : ''}
                   >
                     {p.name}
                   </Link>
@@ -192,7 +192,7 @@ export default function SearchScreen() {
             </ul>
           </div>
           <div>
-            <h3>Average Customer Review</h3>
+            <h3>Average Review</h3>
             <ul>
               {ratings?.map((r) => (
                 <li key={r.name}>
