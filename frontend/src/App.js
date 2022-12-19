@@ -49,7 +49,7 @@ function App() {
       <div className={'d-flex flex-column site-container'}>
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar className="color-nav bg-secondary navbar-dark" expand="lg">
+          <Navbar className="color-nav bg-dark navbar-dark" expand="lg">
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand className="product-title">
